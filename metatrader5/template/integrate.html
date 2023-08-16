@@ -1,0 +1,81 @@
+{% extends('header.html') %}
+
+{% block title %} STA signup {% endblock %}
+
+
+{% block content %}
+
+    <section id="header">
+        <img src="{{ url_for('static', filename='assets/images/logo2.png') }}" class="logo"></img>
+
+        <h1>
+            <p>INTEGRATE WITH METATRADER5</p>
+        </h1>
+
+
+        <form action="/" method="post">
+            {{ form.hidden_tag() }}
+
+            {{ form.login.label }}
+            {{ form.login }}
+
+            {{ form.password.label }}
+            {{ form.password }}
+
+            <div class="terms-box">
+            	{{ form.checkbox }}
+                <label class="checkbox-label">By continuing to agree to our <a href="#">terms and conditions of service</a> of integrating with mt5</label>
+            </div>
+
+            {{ form.submit }}
+            <p class="text">already have an account <a href="#">create a new mt5 account</a> instead</p>
+        </form>
+
+
+    </section>
+
+
+<script>
+
+    document.querySelector("#checkbox").addEventListener("change", function(){
+        console.log("wow this is happening")
+        if (checked == false){
+            btn.style.background = "black";
+            btn.style.cursor = "pointer";
+            btn.disabled = false;
+
+            checked = true;
+        } else {
+            btn.style.background = "gray";
+            btn.style.cursor = "not-allowed";
+            btn.disabled = true;
+
+            checked = false;
+        }
+
+    })
+</script>
+{% endblock %}
+
+
+<!--<script>-->
+<!--    let checkbox = document.querySelector("#checkbox");-->
+<!--    let btn = document.querySelector("#btn");-->
+<!--    let checked = false;-->
+
+<!--    checkbox.addEventListener("change", function(){-->
+<!--        if (checked == false){-->
+<!--            btn.style.background = "black";-->
+<!--            btn.style.cursor = "pointer";-->
+<!--            btn.disabled = false;-->
+
+<!--            checked = true;-->
+<!--        } else {-->
+<!--            btn.style.background = "gray";-->
+<!--            btn.style.cursor = "not-allowed";-->
+<!--            btn.disabled = true;-->
+
+<!--            checked = false;-->
+<!--        }-->
+<!--        -->
+<!--    })-->

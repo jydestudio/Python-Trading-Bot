@@ -1,0 +1,64 @@
+{% extends('header-dashboard.html') %}
+
+{% block title %} STA dashboard {% endblock %}
+
+
+{% block content %}
+
+    <section id="header">
+        <img src="{{ url_for('static', filename='assets/images/logo2.png') }}" class="logo"></img>
+        <a href="#"><i class="fa fa-user-circle fa-2x"></i></a>
+    </section>
+
+    <div class="user-pane">
+        <div class="profile">
+            <i class="fa fa-user-circle fa-2x"></i>
+            <div>
+                <span class="name">Fatoki Lawrence</span>
+                <span>fatokilawrencefuta@gmail.com</span>
+            </div>
+        </div>
+        <a href="#"><i class="fa fa-sign-out"></i> LOGUT</a>
+
+    </div>
+
+    <section id="content">
+        <h3>INPUT YOUR SETTINGS</h3>
+
+        <form action="/" method="post">
+            <label for="symbol">Symbol *</label>
+            <input id="symbol" placeholder="EURUSD" name="symbol">
+
+            <label for="timeframe">Timeframe *</label>
+            <select id="timeframe" name="timeframe">
+                <option>M1</option>
+                <option>SM15</option>
+            </select>
+
+            <label for="lot">Lot Size *</label>
+            <input id="lot" type="number" placeholder="0.00" name="lot">
+
+            <label for="strategy">Select Strategy *</label>
+            <select id="strategy" name="strategy">
+                <option>BUY STRATEGY</option>
+                <option>SELL STRATEGY</option>
+            </select>
+
+            <label for="price">Target price *</label>
+            <input id="price" type="number" placeholder="0.00" name="target-price">
+
+            <label for="stop">Stop loss (in pips) *</label>
+            <input id="stop" type="number" placeholder="0.00" name="stop-loss">
+
+            <div class="terms-box">
+                <input id="checkbox" name="checkbox" class="checkbox" type="checkbox">
+                <label for="checkbox" class="checkbox-label">By clicking start you to agree to our <a href="#">terms and conditions of service</a> of carrying out orders on your account.</label>
+            </div>
+
+            <input type="submit" disabled id="btn" value="START"></button>
+        </form>
+    </section>
+
+{% endblock %}
+
+

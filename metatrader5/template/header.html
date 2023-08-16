@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css') }}">
+    <title>{% block title %}Stack Trading Assistant {% endblock %}</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div>
+    <ul class="err-box">
+    {% for category, message in messages %}
+    <li class="err {{ category }}">
+    <span>{{ message }}</span>
+    <i class="err-times fa fa-times"></i>
+    </li>
+    {% endfor %}
+    </ul>
+    
+    
+    </div>
+    {% endif %}
+    {% endwith %}
+    
+
+	{% block content %}
+
+	
+	{% endblock %}
+
+
+</body>
+
+<script>
+
+
+
+
+    let btn = document.querySelector("#btn");
+    let checked = false;
+
+	let errTimes = document.querySelector(".err-times");
+	let err = document.querySelector(".err");
+
+	let password = document.querySelector("#password");
+	let confirmPassword = document.querySelector("#confirm_password");
+	let message = document.querySelector('.msg1');
+	let msg = document.querySelector('.msg2');
+	let letter = document.querySelector('.letter');
+	let number = document.querySelector('.number');
+	let symbol = document.querySelector('.symbol');
+	let character = document.querySelector('.character');
+	let eye = document.querySelector(".fa-eye-slash");
+	let showed = false;
+
+	let red = "rgb(200,0,0)";
+	let green = "rgb(0,200,0)";
+
+	confirmPassword.addEventListener("keyup", function(){
+
+	    if (confirmPassword.value == password.value){
+            msg.style.display = "block";
+            msg.style.color = green;
+            msg.innerHTML = "<i class='fa fa-check-circle'></i> password matches"
+        } else {
+            msg.style.display = "block";
+            msg.style.color = red;
+            msg.innerHTML = "<i class='fa fa-times-circle'></i> password does not match"
+        }
+
+
+	})
+
+
+	password.addEventListener("keyup", function(){
+
+	    if (confirmPassword.value == password.value){
+            msg.style.display = "block";
+            msg.style.color = green;
+            msg.innerHTML = "<i class='fa fa-check-circle'></i> password matches"
+        } else {
+            msg.style.display = "block";
+            msg.style.color = red;
+            msg.innerHTML = "<i class='fa fa-times-circle'></i> password does not match"
+        }
+
+		const passwordValue = password.value;
+
+		const lengthRegex = /.{8,}/;
+		const letterRegex = /[A-Za-z]/;
+		const numberRegex = /\d/;
+		const symbolRegex = /[@$!%*#?&]/;
+
+		const lengthValid = lengthRegex.test(passwordValue);
+		const letterValid = letterRegex.test(passwordValue);
+		const numberValid = numberRegex.test(passwordValue);
+		const symbolValid = symbolRegex.test(passwordValue);
+
+		message.style.display = "block";
+		if (lengthValid && letterValid && numberValid && symbolValid) {
+			message.style.color = green;
+			message.innerHTML = "<i class='fa fa-check-circle'></i> you're all good"
+
+		} else {
+			message.style.color = red;
+
+			if (letterValid){
+				letter.style.color = green;
+				letter.innerHTML = "<i class='fa fa-check-circle'></i> letter";
+			} else {
+				letter.style.color = red;
+				letter.innerHTML = "letter";
+			}
+
+			if (numberValid){
+				number.style.color = green;
+				number.innerHTML = "<i class='fa fa-check-circle'></i> number";
+			} else {
+				number.style.color = red;
+				number.innerHTML = "number";
+			}
+
+			if (symbolValid){
+				symbol.style.color = green;
+				symbol.innerHTML = "<i class='fa fa-check-circle'></i> symbol";
+			} else {
+				symbol.style.color = red;
+				symbol.innerHTML = "symbol";
+			}
+
+			if (lengthValid){
+				character.style.color = green;
+				character.innerHTML = "<i class='fa fa-check-circle'></i> eight characters long";
+			} else {
+				character.style.color = red;
+				character.innerHTML = "eight characters long";
+			}
+		}
+
+	})
+
+	errTimes.addEventListener("click", function(){
+	    err.style.display = "none";
+	})
+
+
+	eye.addEventListener("click", function(){
+		if (showed == false){
+			eye.classList = "fa fa-eye fa-2x";
+			showed = true;
+		} else {
+			eye.classList = "fa fa-eye-slash fa-2x";
+			showed = false
+		}
+	})
+
+
+
+</script>
+<footer>
+	<p>&copy copyrights stack trading assistant 2023.</p>
+</footer>
+
+
+<html>

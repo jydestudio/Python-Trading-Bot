@@ -1,0 +1,196 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/ItalianaMontserrat/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.logo {
+    width: 30%;
+    margin: 5% auto;
+    display: block;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 900;
+}
+
+h1 p {
+    font-size: 1rem;
+    color: #cca00f;
+}
+
+form {
+    width: 310px;
+    margin: auto;
+    display: block;
+    position: relative;
+}
+
+
+label {
+    display: block;
+    padding: 8px 0;
+}
+
+
+input {
+    width: 300px;
+    height: 50px;
+    margin-bottom: 10%;
+    border: 2.5px solid;
+    border-radius: 4px;
+    padding: 0 15px;
+    font-family: Montserrat;
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    height: 55px;
+}
+
+form #btn {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+
+form .terms-box {
+    display: flex;
+    align-items: center;
+}
+form .checkbox-label, form .checkbox {
+    display: inline;
+}
+
+form .checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    margin-right: 16px;
+}
+
+form .text {
+    text-align: center;
+    margin: 0;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 5% 0;
+    background-color: #1a1a1a;
+    color: white;
+    margin-top: 10%;
+}
+
+
+@media only screen and (max-width: 750px){
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    body {
+        font-size: 14px;
+    }
+
+    .logo {
+        width: 35%;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    form .checkbox-label {
+        width: 240px;
+    }
+
+    form .text {
+        width: 270px;
+    }
+
+    footer p {
+        width: 180px;
+        display: inline-block;
+        text-align: center;
+    }
+
+    #header {
+        padding: 0 20px;
+    }
+
+    input {
+        width: 305px;
+    }
+}
+
+.msg1, .msg2 {
+	width: auto;
+	height: auto;
+	display: none;
+	position: relative;
+	bottom: 16px;
+}
+
+.err {
+	width: 70%;
+    border-radius: 8px;
+    padding: 15px;
+	color: white;
+	list-style: none;
+	position: absolute;
+	top: 10%;
+	right: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-sizing:border-box;
+}
+
+.danger {
+    background: #ff5733;
+}
+
+.success {
+    background: #8bc34a;
+}
+
+.fa-eye, .fa-eye-slash {
+	color: #1a1a1a;
+}
+
+
+.show-password-text {
+	display: flex;
+	align-items: center;
+}
+
+.show-password-text span {
+	margin-left: 10px;
+}
+
+
+#eye {
+	display: none;
+}
+
+/* Email style */
+.email-text {
+    padding: 20px;
+}

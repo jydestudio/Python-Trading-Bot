@@ -1,0 +1,82 @@
+{% extends('header-dashboard.html') %}
+
+{% block title %} STA dashboard {% endblock %}
+
+
+{% block content %}
+    <section id="header">
+        <img src="{{ url_for('static', filename='assets/images/logo2.png') }}" class="logo"></img>
+        <a href="#"><i class="fa fa-user-circle fa-2x"></i></a>
+    </section>
+
+    <div class="user-pane">
+        <div class="profile">
+            <i class="fa fa-user-circle fa-2x"></i>
+            <div>
+                <span class="name">Fatoki Lawrence</span>
+                <span>fatokilawrencefuta@gmail.com</span>
+            </div>
+        </div>
+        <a href="#"><i class="fa fa-sign-out"></i> LOGUT</a>
+
+    </div>
+
+    <section id="content">
+        <h3>FEEDBACK</h3>
+
+        <div>
+            <table>
+                <tbody>
+                    <tr class="color">
+                        <th>SYMBOL</th>
+                        <td>EURUSD</td>
+                    </tr>
+
+                    <tr>
+                        <th>TIMEFRAME</th>
+                        <td>M1</td>
+                    </tr>
+
+                    <tr class="color">
+                        <th>LOT SIZE</th>
+                        <td>0.01</td>
+                    </tr>
+
+                    <tr>
+                        <th>STRATEGY</th>
+                        <td>Buy strategy</td>
+                    </tr>
+
+                    <tr class="color">
+                        <th>TARGET PRICE</th>
+                        <td>1.7803</td>
+                    </tr>
+
+                    <tr>
+                        <th>STOP LOSS</th>
+                        <td>50 pip(s)</td>
+                    </tr>
+
+                    <tr class="color">
+                        <th>STATUS</th>
+                        <td>Bot is running...</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        
+        <form action="" method="post">
+        	<div class="terms-box">
+        	<input id="checkbox" name="checkbox" class="checkbox" type="checkbox">
+        	<label for="checkbox" class="checkbox-label">By clicking start you to agree to our <a href="#">terms and conditions of service</a> of unabling this bot.</label>
+        	</div>
+        	
+        	<input type="submit" disabled id="btn" value="STOP"></button>
+        	
+        </form>
+        
+    </section>
+
+
+{% endblock %}

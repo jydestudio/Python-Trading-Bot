@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/dashboard-styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="assets/fonts/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css">
+
+    <title>Stack Trading Assistant</title>
+</head>
+<body>
+    <section id="header">
+        <img src="assets/images/logo2.png" class="logo"></img>
+        <a href="#"><i class="fa fa-user-circle fa-2x"></i></a>
+    </section>
+
+    <div class="user-pane">
+        <div class="profile">
+            <i class="fa fa-user-circle fa-2x"></i>
+            <div>
+                <span class="name">Fatoki Lawrence</span>
+                <span>fatokilawrencefuta@gmail.com</span>
+            </div>
+        </div>
+        <a href="#"><i class="fa fa-sign-out"></i> LOGUT</a>
+
+    </div>
+
+    <section id="content">
+        <h3>FEEDBACK</h3>
+
+        <div>
+            <table>
+                <tbody>
+                    <tr class="color">
+                        <th>SYMBOL</th>
+                        <td>EURUSD</td>
+                    </tr>
+
+                    <tr>
+                        <th>TIMEFRAME</th>
+                        <td>M1</td>
+                    </tr>
+
+                    <tr class="color">
+                        <th>LOT SIZE</th>
+                        <td>0.01</td>
+                    </tr>
+
+                    <tr>
+                        <th>STRATEGY</th>
+                        <td>Buy strategy</td>
+                    </tr>
+
+                    <tr class="color">
+                        <th>TARGET PRICE</th>
+                        <td>1.7803</td>
+                    </tr>
+
+                    <tr>
+                        <th>STOP LOSS</th>
+                        <td>50 pip(s)</td>
+                    </tr>
+
+                    <tr class="color">
+                        <th>STATUS</th>
+                        <td>Bot is running...</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        
+        <form action="" method="post">
+        	<div class="terms-box">
+        	<input id="checkbox" name="checkbox" class="checkbox" type="checkbox">
+        	<label for="checkbox" class="checkbox-label">By clicking start you to agree to our <a href="#">terms and conditions of service</a> of unabling this bot.</label>
+        	</div>
+        	
+        	<input type="submit" disabled id="btn" value="STOP"></button>
+        	
+        </form>
+        
+    </section>
+</body>
+<footer>
+    <p>&copy copyrights stack trading assistant 2023.</p>
+</footer>
+
+
+<script>
+    let checkbox = document.querySelector("#checkbox");
+    let btn = document.querySelector("#btn");
+    let userBtn = document.querySelector(".fa-user-circle");
+    let userPane = document.querySelector(".user-pane")
+    let checked = false;
+
+    checkbox.addEventListener("change", function(){
+        if (checked == false){
+            btn.style.background = "red";
+            btn.style.cursor = "pointer";
+            btn.disabled = false;
+
+            checked = true;
+        } else {
+            btn.style.background = "gray";
+            btn.style.cursor = "not-allowed";
+            btn.disabled = true;
+
+            checked = false;
+        }
+        
+    })
+
+    btn.addEventListener("click", function(){
+        alert("Are you sure you want to proceed ")
+    })
+
+    let userPaneStatus = "off";
+
+    userBtn.addEventListener("click", function(){
+        if (userPaneStatus == "off"){
+            userPane.style.display = "block";
+            userPaneStatus = "on";
+        } else {
+            userPane.style.display = "none";
+            userPaneStatus = "off";
+        }
+    })
+
+</script>
+
+</html>

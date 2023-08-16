@@ -1,0 +1,23 @@
+{% extends('header.html') %}
+
+{% block title %} STA login {% endblock %}
+
+
+{% block content %}
+    <section id="header">
+        <img src="{{ url_for('static', filename='assets/images/logo2.png') }}" class="logo"></img>
+
+        <h1>
+            CONFIRMATION EMAIL
+            <p>click on the email link to confirm your email address</p>
+        </h1>
+
+        <div class="email-text">
+            <p>Hello {{ user_name }},</p>
+            <p>Click the following link to confirm your email:</p>
+            <a href="{{ confirm_url }}">{{ confirm_url }}</a>
+            <p>If you didn't request this confirmation, please ignore this email.</p>
+        </div>
+
+    </section>
+{% endblock %}

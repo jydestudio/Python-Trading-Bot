@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/dashboard-styles.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/fontawesome-free-6.2.0-web/fontawesome-free-6.2.0-web/css/all.min.css') }}">
+    <title>{% block title %}Stack Trading Assistant {% endblock %}</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div>
+    <ul class="err-box">
+    {% for category, message in messages %}
+    <li class="err {{ category }}">
+    <span>{{ message }}</span>
+    <i class="err-times fa fa-times"></i>
+    </li>
+    {% endfor %}
+    </ul>
+    
+    
+    </div>
+    {% endif %}
+    {% endwith %}
+    
+
+	{% block content %}
+
+	
+	{% endblock %}
+
+</body>
+
+<footer>
+	<p>&copy copyrights stack trading assistant 2023.</p>
+</footer>
+
+<script>
+    let checkbox = document.querySelector("#checkbox");
+    let btn = document.querySelector("#btn");
+    let userBtn = document.querySelector(".fa-user-circle");
+    let userPane = document.querySelector(".user-pane")
+    let checked = false;
+    let errTimes = document.querySelector(".err-times");
+	let err = document.querySelector(".err");
+
+    
+    errTimes.addEventListener("click", function(){
+	    err.style.display = "none";
+	})
+	
+	
+    checkbox.addEventListener("change", function(){
+        if (checked == false){
+            btn.style.background = "black";
+            btn.style.cursor = "pointer";
+            btn.disabled = false;
+
+            checked = true;
+        } else {
+            btn.style.background = "gray";
+            btn.style.cursor = "not-allowed";
+            btn.disabled = true;
+
+            checked = false;
+        }
+        
+    })
+
+    
+    let userPaneStatus = "off";
+
+    userBtn.addEventListener("click", function(){
+        if (userPaneStatus == "off"){
+            userPane.style.display = "block";
+            userPaneStatus = "on";
+        } else {
+            userPane.style.display = "none";
+            userPaneStatus = "off";
+        }
+    })
+
+</script>
+<html>
